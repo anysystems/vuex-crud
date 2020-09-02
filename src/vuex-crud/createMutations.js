@@ -24,7 +24,7 @@ const createMutations = ({
     onReplaceError,
     onDestroyStart,
     onDestroySuccess,
-    onDestroyError
+    onDestroyError,
 }) => {
     const crudMutations = {};
 
@@ -41,7 +41,7 @@ const createMutations = ({
                 data.forEach((m) => {
                     Vue.set(state.entities, m[idAttribute].toString(), m);
                 });
-                state.list = data.map(m => m[idAttribute].toString());
+                state.list = data.map((m) => m[idAttribute].toString());
                 state.isFetchingList = false;
                 state.fetchListError = null;
                 onFetchListSuccess(state, response);
@@ -52,7 +52,7 @@ const createMutations = ({
                 state.fetchListError = err;
                 state.isFetchingList = false;
                 onFetchListError(state, err);
-            }
+            },
         });
     }
 
@@ -77,7 +77,7 @@ const createMutations = ({
                 state.fetchSingleError = err;
                 state.isFetchingSingle = false;
                 onFetchSingleError(state, err);
-            }
+            },
         });
     }
 
@@ -103,7 +103,7 @@ const createMutations = ({
                 state.createError = err;
                 state.isCreating = false;
                 onCreateError(state, err);
-            }
+            },
         });
     }
 
@@ -136,7 +136,7 @@ const createMutations = ({
                 state.updateError = err;
                 state.isUpdating = false;
                 onUpdateError(state, err);
-            }
+            },
         });
     }
 
@@ -169,7 +169,7 @@ const createMutations = ({
                 state.replaceError = err;
                 state.isReplacing = false;
                 onReplaceError(state, err);
-            }
+            },
         });
     }
 
@@ -198,7 +198,7 @@ const createMutations = ({
                 state.destroyError = err;
                 state.isDestroying = false;
                 onDestroyError(state, err);
-            }
+            },
         });
     }
 
