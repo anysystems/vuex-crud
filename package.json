@@ -7,7 +7,6 @@
     "author": "Jiri Chara <jiri@chara.vip>",
     "license": "MIT",
     "scripts": {
-        "install": "npm install . && npm run build:commonjs",
         "npm": "npm run build:commonjs",
         "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
         "clean": "rimraf lib coverage esdoc",
