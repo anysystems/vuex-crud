@@ -22,6 +22,9 @@ const createMutations = ({
     onReplaceStart,
     onReplaceSuccess,
     onReplaceError,
+    onReplaceListStart,
+    onReplaceListSuccess,
+    onReplaceListError,
     onDestroyStart,
     onDestroySuccess,
     onDestroyError,
@@ -169,6 +172,34 @@ const createMutations = ({
                 state.replaceError = err;
                 state.isReplacing = false;
                 onReplaceError(state, err);
+            },
+        });
+    }
+
+    if (only.includes('REPLACE_LIST')) {
+        Object.assign(crudMutations, {
+            replaceListStart(state) {
+                state.isReplacingList = true;
+                onReplaceListStart(state);
+            },
+
+            replaceListSuccess(state, response) {
+                const { data } = response;
+
+                data.forEach((m) => {
+                    Vue.set(state.entities, m[idAttribute].toString(), m);
+                });
+                state.list = data.map((m) => m[idAttribute].toString());
+
+                state.isReplacingList = false;
+                state.replaceListError = null;
+                onReplaceListSuccess(state, response);
+            },
+
+            replaceListError(state, err) {
+                state.replaceListError = err;
+                state.isReplacingList = false;
+                onReplaceListError(state, err);
             },
         });
     }

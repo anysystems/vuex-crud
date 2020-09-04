@@ -39,6 +39,13 @@ const createState = ({ state, only }) => {
         });
     }
 
+    if (only.includes('REPLACE_LIST')) {
+        Object.assign(crudState, {
+            isReplacingList: false,
+            replaceListError: null,
+        });
+    }
+
     if (only.includes('DESTROY')) {
         Object.assign(crudState, {
             isDestroying: false,

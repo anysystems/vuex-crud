@@ -32,6 +32,9 @@ import createState from './vuex-crud/createState';
  * @property {Function} onReplaceStart Mutation method called after replace state.
  * @property {Function} onReplaceSuccess Mutation method called after replace success.
  * @property {Function} onReplaceError Mutation method called after replace error.
+ * @property {Function} onReplaceListStart Mutation method called after replace list state.
+ * @property {Function} onReplaceListSuccess Mutation method called after replace list success.
+ * @property {Function} onReplaceListError Mutation method called after replace list error.
  * @property {Function} onDestroyStart Mutation method called after destroy state.
  * @property {Function} onDestroySuccess Mutation method called after destroy success.
  * @property {Function} onDestroyError Mutation method called after destroy error.
@@ -66,10 +69,13 @@ const createCrud = ({
     onReplaceStart = () => {},
     onReplaceSuccess = () => {},
     onReplaceError = () => {},
+    onReplaceListStart = () => {},
+    onReplaceListSuccess = () => {},
+    onReplaceListError = () => {},
     onDestroyStart = () => {},
     onDestroySuccess = () => {},
     onDestroyError = () => {},
-    only = ['FETCH_LIST', 'FETCH_SINGLE', 'CREATE', 'UPDATE', 'REPLACE', 'DESTROY'],
+    only = ['FETCH_LIST', 'FETCH_SINGLE', 'CREATE', 'UPDATE', 'REPLACE', 'REPLACE_LIST', 'DESTROY'],
     parseList = (res) => res,
     parseSingle = (res) => res,
     parseError = (res) => res,
@@ -130,6 +136,9 @@ const createCrud = ({
             onReplaceStart,
             onReplaceSuccess,
             onReplaceError,
+            onReplaceListStart,
+            onReplaceListSuccess,
+            onReplaceListError,
             onDestroyStart,
             onDestroySuccess,
             onDestroyError,

@@ -1,10 +1,11 @@
 const createActions = ({ actions, rootUrl, client, only, parseList, parseSingle, parseError }) => {
-    const [FETCH_LIST, FETCH_SINGLE, CREATE, UPDATE, REPLACE, DESTROY] = [
+    const [FETCH_LIST, FETCH_SINGLE, CREATE, UPDATE, REPLACE, REPLACE_LIST, DESTROY] = [
         'FETCH_LIST',
         'FETCH_SINGLE',
         'CREATE',
         'UPDATE',
         'REPLACE',
+        'REPLACE_LIST',
         'DESTROY',
     ];
     const crudActions = {};
@@ -191,6 +192,36 @@ const createActions = ({ actions, rootUrl, client, only, parseList, parseSingle,
                         const parsedError = parseError(err);
 
                         commit('replaceError', parsedError);
+
+                        return Promise.reject(parsedError);
+                    });
+            },
+        });
+    }
+
+    if (only.includes(REPLACE_LIST)) {
+        Object.assign(crudActions, {
+            /**
+             * GET /api/<resourceName>
+             *
+             * Fetch list of resources.
+             */
+            replaceList({ commit }, { config, customUrl, customUrlFnArgs = [] } = {}) {
+                commit('replaceListStart');
+
+                return client
+                    .get(urlGetter({ customUrl, customUrlFnArgs, type: REPLACE_LIST }), config)
+                    .then((res) => {
+                        const parsedResponse = parseList(res);
+
+                        commit('replaceListSuccess', parsedResponse);
+
+                        return parsedResponse;
+                    })
+                    .catch((err) => {
+                        const parsedError = parseError(err);
+
+                        commit('replaceListError', parsedError);
 
                         return Promise.reject(parsedError);
                     });

@@ -27,6 +27,7 @@ const createGetters = ({ getters } = {}) =>
                     state.createError !== null ||
                     state.updateError !== null ||
                     state.replaceError !== null ||
+                    state.replaceListError !== null ||
                     state.destroyError !== null
                 );
             },
@@ -41,6 +42,7 @@ const createGetters = ({ getters } = {}) =>
                     state.isCreating ||
                     state.isUpdating ||
                     state.isReplacing ||
+                    state.isReplacingList ||
                     state.isDestroying
                 );
             },
