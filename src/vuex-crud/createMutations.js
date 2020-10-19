@@ -51,7 +51,8 @@ const createMutations = ({
       },
 
       fetchListError(state, err) {
-        state.list = [];
+        // Keep previous data
+        // state.list = [];
         state.fetchListError = err;
         state.isFetchingList = false;
         onFetchListError(state, err);
