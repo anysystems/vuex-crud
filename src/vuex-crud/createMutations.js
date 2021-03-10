@@ -39,11 +39,17 @@ const createMutations = ({
       },
 
       fetchListSuccess(state, response) {
-        const { data } = response;
+        let { data } = response;
+
+        if (typeof data == 'object' && data != null) {
+          state.total = data.total;
+          data = data.data;
+        }
 
         data.forEach((m) => {
           Vue.set(state.entities, m[idAttribute].toString(), m);
         });
+
         state.list = Object.values(state.entities).map((m) => m[idAttribute].toString());
         state.isFetchingList = false;
         state.fetchListError = null;

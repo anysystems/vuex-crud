@@ -1,7 +1,8 @@
 const createState = ({ state, only }) => {
     const crudState = {
-        entities: {},
-        list: [],
+      total: null,
+      entities: {},
+      list: [],
     };
 
     if (only.includes('FETCH_LIST')) {
