@@ -20,7 +20,7 @@ const createGetters = ({ getters } = {}) =>
       },
 
       total(state) {
-          return state.total || state.list.length;
+        return state.total || state.list.length;
       },
 
       /**
@@ -28,6 +28,20 @@ const createGetters = ({ getters } = {}) =>
        */
       byId(state) {
         return (id) => state.entities[id.toString()];
+      },
+
+      /**
+       * Get resource by guid.
+       */
+      byGuid(state) {
+        return (guid) => state.entities.find((e) => e.guid == guid);
+      },
+
+      /**
+       * Get resource by attribute.
+       */
+      byAttribute() {
+        return (attribute, value) => state.entities.find((e) => e[attribute] == value);
       },
 
       /**
