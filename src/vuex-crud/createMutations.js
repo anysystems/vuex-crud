@@ -41,7 +41,7 @@ const createMutations = ({
       fetchListSuccess(state, response) {
         let { data } = response;
 
-        if (typeof data == 'object' && data != null) {
+        if (!!data && !!data.current_page && !!data.data && !!data.data.length) {
           state.total = data.total;
           data = data.data;
         }
