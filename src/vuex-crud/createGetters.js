@@ -34,14 +34,14 @@ const createGetters = ({ getters } = {}) =>
        * Get resource by guid.
        */
       byGuid(state) {
-        return (guid) => state.entities.find((e) => e.guid == guid);
+        return (guid) => Object.values(state.entities).find((e) => e.guid == guid);
       },
 
       /**
        * Get resource by attribute.
        */
       byAttribute() {
-        return (attribute, value) => state.entities.find((e) => e[attribute] == value);
+        return (attribute, value) => Object.values(state.entities).find((e) => e[attribute] == value);
       },
 
       /**
