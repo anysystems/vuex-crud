@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
 
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
 
   extends: 'airbnb-base',
 
@@ -22,6 +22,7 @@ module.exports = {
     'comma-dangle': [2, 'never'],
     'no-underscore-dangle': 0,
     'no-param-reassign': 0,
-    'func-names': 0
+    'func-names': 0,
+    "requireConfigFile": 0,
   }
 };
