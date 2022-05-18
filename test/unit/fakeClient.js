@@ -6,9 +6,9 @@ export default {
   isSuccessful: true,
 
   defaultPromise() {
-    const promise = new Promise((resolve, reject) => ((this.isSuccessful) ?
-      resolve(this.successResponse) :
-      reject(this.errorResponse)
+    const promise = new Promise((resolve, reject) => ((this.isSuccessful)
+      ? resolve(this.successResponse)
+      : reject(this.errorResponse)
     ));
 
     return promise;

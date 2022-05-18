@@ -27,7 +27,7 @@ const createMutations = ({
   onReplaceListError,
   onDestroyStart,
   onDestroySuccess,
-  onDestroyError,
+  onDestroyError
 }) => {
   const crudMutations = {};
 
@@ -62,7 +62,7 @@ const createMutations = ({
         state.fetchListError = err;
         state.isFetchingList = false;
         onFetchListError(state, err);
-      },
+      }
     });
   }
 
@@ -87,7 +87,7 @@ const createMutations = ({
         state.fetchSingleError = err;
         state.isFetchingSingle = false;
         onFetchSingleError(state, err);
-      },
+      }
     });
   }
 
@@ -113,7 +113,7 @@ const createMutations = ({
         state.createError = err;
         state.isCreating = false;
         onCreateError(state, err);
-      },
+      }
     });
   }
 
@@ -146,7 +146,7 @@ const createMutations = ({
         state.updateError = err;
         state.isUpdating = false;
         onUpdateError(state, err);
-      },
+      }
     });
   }
 
@@ -179,7 +179,7 @@ const createMutations = ({
         state.replaceError = err;
         state.isReplacing = false;
         onReplaceError(state, err);
-      },
+      }
     });
   }
 
@@ -207,7 +207,7 @@ const createMutations = ({
         state.replaceListError = err;
         state.isReplacingList = false;
         onReplaceListError(state, err);
-      },
+      }
     });
   }
 
@@ -236,7 +236,7 @@ const createMutations = ({
         state.destroyError = err;
         state.isDestroying = false;
         onDestroyError(state, err);
-      },
+      }
     });
   }
 

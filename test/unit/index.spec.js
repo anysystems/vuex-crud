@@ -119,11 +119,11 @@ test('calls createActions with correct arguments', (t) => {
   const spy = sinon.spy(createActionsObj, 'default');
 
   const actions = {};
-  const customClient = () => null;
+  const customClient = () => (null);
   const only = ['FETCH_LIST'];
-  const parseList = res => res;
-  const parseSingle = res => res;
-  const parseError = err => err;
+  const parseList = (res) => (res);
+  const parseSingle = (res) => (res);
+  const parseError = (err) => (err);
 
   const crud = createCrud({
     resource: 'articles',
@@ -155,10 +155,10 @@ test('calls createActions with correct arguments when customUrlFn provided', (t)
   const actions = {};
   const customClient = () => null;
   const only = ['FETCH_LIST'];
-  const parseList = res => res;
-  const parseSingle = res => res;
-  const parseError = err => err;
-  const customUrlFn = id => (
+  const parseList = (res) => (res);
+  const parseSingle = (res) => (res);
+  const parseError = (err) => (err);
+  const customUrlFn = (id) => (
     id ? '/api/foo' : `/api/foo/${id}`
   );
 
@@ -459,7 +459,6 @@ test('calls createGetters with correct arguments', (t) => {
     getters: customGetters,
     idAttribute: 'slug'
   }).getters;
-
 
   const arg = spy.getCalls(0)[0].args[0];
 

@@ -15,9 +15,9 @@ test.beforeEach(() => {
 test('creates actions with fetchList method', (t) => {
   const actions = createActions({
     only: ['FETCH_LIST'],
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   t.truthy(actions.fetchList);
@@ -33,9 +33,9 @@ test('fetchList commits fetchListStart', (t) => {
   const { fetchList } = createActions({
     only: ['FETCH_LIST'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -49,9 +49,9 @@ test.cb('fetchList commits fetchListSuccess', (t) => {
   const { fetchList } = createActions({
     only: ['FETCH_LIST'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -74,9 +74,9 @@ test.cb('fetchList commits fetchListError', (t) => {
   const { fetchList } = createActions({
     only: ['FETCH_LIST'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -98,9 +98,9 @@ test('calls get with correct arguments', (t) => {
     rootUrl: '/articles',
     only: ['FETCH_LIST'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const config = { foo: 'bar' };
@@ -120,9 +120,9 @@ test('fetch list supports customUrl', (t) => {
     rootUrl: '/articles',
     only: ['FETCH_LIST'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const config = { foo: 'bar' };
@@ -142,9 +142,9 @@ test('fetch list supports customUrlFnArgs', (t) => {
     rootUrl(id, type, parentId) { return `/users/${parentId}/articles`; },
     only: ['FETCH_LIST'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const config = { foo: 'bar' };
@@ -164,9 +164,9 @@ test('fetch list supports customUrlFnArgs as array', (t) => {
     rootUrl(id, type, parentId) { return `/users/${parentId}/articles`; },
     only: ['FETCH_LIST'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const config = { foo: 'bar' };
@@ -186,9 +186,9 @@ test('fetch list supports customUrlFnArgs as array', (t) => {
 test('creates actions with fetchSingle method', (t) => {
   const actions = createActions({
     only: ['FETCH_SINGLE'],
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   t.truthy(actions.fetchSingle);
@@ -204,9 +204,9 @@ test('fetchSingle commits fetchSingleStart', (t) => {
   const { fetchSingle } = createActions({
     only: ['FETCH_SINGLE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -220,9 +220,9 @@ test.cb('fetchSingle commits fetchSingleSuccess', (t) => {
   const { fetchSingle } = createActions({
     only: ['FETCH_SINGLE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -245,9 +245,9 @@ test.cb('fetchSingle commits fetchSingleError', (t) => {
   const { fetchSingle } = createActions({
     only: ['FETCH_SINGLE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -269,9 +269,9 @@ test('calls get with correct arguments', (t) => {
     rootUrl: '/articles',
     only: ['FETCH_SINGLE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const id = 123;
@@ -292,9 +292,9 @@ test('fetch single supports customUrl', (t) => {
     rootUrl: '/articles',
     only: ['FETCH_SINGLE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const config = { foo: 'bar' };
@@ -314,9 +314,9 @@ test('fetch single supports customUrlFnArgs', (t) => {
     rootUrl(id, type, parentId) { return `/users/${parentId}/articles/${id}`; },
     only: ['FETCH_SINGLE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const id = 123;
@@ -337,9 +337,9 @@ test('fetch single supports customUrlFnArgs as array', (t) => {
     rootUrl(id, type, parentId) { return `/users/${parentId}/articles/${id}`; },
     only: ['FETCH_SINGLE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const id = 123;
@@ -360,9 +360,9 @@ test('fetch single supports customUrlFnArgs as array', (t) => {
 test('creates actions with create method', (t) => {
   const actions = createActions({
     only: ['CREATE'],
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   t.truthy(actions.create);
@@ -378,9 +378,9 @@ test('create commits createStart', (t) => {
   const { create } = createActions({
     only: ['CREATE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -394,9 +394,9 @@ test.cb('create commits createSuccess', (t) => {
   const { create } = createActions({
     only: ['CREATE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -405,7 +405,6 @@ test.cb('create commits createSuccess', (t) => {
 
   create({ commit }).then(() => {
     const { args } = commit.getCalls()[1];
-
 
     t.is(args[0], 'createSuccess');
     t.deepEqual(args[1], client.successResponse);
@@ -420,9 +419,9 @@ test.cb('create commits createError', (t) => {
   const { create } = createActions({
     only: ['CREATE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -444,9 +443,9 @@ test('calls post with correct arguments', (t) => {
     rootUrl: '/articles',
     only: ['CREATE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const data = { some: 'data' };
@@ -467,9 +466,9 @@ test('create supports customUrl', (t) => {
     rootUrl: '/articles',
     only: ['CREATE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const data = { some: 'data' };
@@ -490,9 +489,9 @@ test('create supports customUrlFnArgs', (t) => {
     rootUrl(id, type, parentId) { return `/users/${parentId}/articles`; },
     only: ['CREATE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const data = { some: 'data' };
@@ -513,9 +512,9 @@ test('create supports customUrlFnArgs as array', (t) => {
     rootUrl(id, type, parentId) { return `/users/${parentId}/articles`; },
     only: ['CREATE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const data = { some: 'data' };
@@ -536,9 +535,9 @@ test('create supports customUrlFnArgs as array', (t) => {
 test('creates actions with update method', (t) => {
   const actions = createActions({
     only: ['UPDATE'],
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   t.truthy(actions.update);
@@ -554,9 +553,9 @@ test('update commits updateStart', (t) => {
   const { update } = createActions({
     only: ['UPDATE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -570,9 +569,9 @@ test.cb('update commits updateSuccess', (t) => {
   const { update } = createActions({
     only: ['UPDATE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -595,9 +594,9 @@ test.cb('update commits updateError', (t) => {
   const { update } = createActions({
     only: ['UPDATE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -619,9 +618,9 @@ test('calls patch with correct arguments', (t) => {
     rootUrl: '/articles',
     only: ['UPDATE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const id = 123;
@@ -643,9 +642,9 @@ test('update supports customUrl', (t) => {
     rootUrl: '/articles',
     only: ['UPDATE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const data = { some: 'data' };
@@ -666,9 +665,9 @@ test('update supports customUrlFnArgs', (t) => {
     rootUrl(id, type, parentId) { return `/users/${parentId}/articles/${id}`; },
     only: ['UPDATE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const id = 123;
@@ -695,9 +694,9 @@ test('update supports customUrlFnArgs as array', (t) => {
     rootUrl(id, type, parentId) { return `/users/${parentId}/articles/${id}`; },
     only: ['UPDATE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const id = 123;
@@ -724,9 +723,9 @@ test('update supports customUrlFnArgs as array', (t) => {
 test('creates actions with replace method', (t) => {
   const actions = createActions({
     only: ['REPLACE'],
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   t.truthy(actions.replace);
@@ -742,9 +741,9 @@ test('replace commits replaceStart', (t) => {
   const { replace } = createActions({
     only: ['REPLACE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -758,9 +757,9 @@ test.cb('replace commits replaceSuccess', (t) => {
   const { replace } = createActions({
     only: ['REPLACE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -783,9 +782,9 @@ test.cb('replace commits replaceError', (t) => {
   const { replace } = createActions({
     only: ['REPLACE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -807,9 +806,9 @@ test('calls put with correct arguments', (t) => {
     rootUrl: '/articles',
     only: ['REPLACE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const id = 123;
@@ -831,9 +830,9 @@ test('replace supports customUrl', (t) => {
     rootUrl: '/articles',
     only: ['REPLACE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const data = { some: 'data' };
@@ -854,9 +853,9 @@ test('replace supports customUrlFnArgs', (t) => {
     rootUrl(id, type, parentId) { return `/users/${parentId}/articles/${id}`; },
     only: ['REPLACE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const id = 123;
@@ -883,9 +882,9 @@ test('replace supports customUrlFnArgs as array', (t) => {
     rootUrl(id, type, parentId) { return `/users/${parentId}/articles/${id}`; },
     only: ['REPLACE'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const id = 123;
@@ -912,9 +911,9 @@ test('replace supports customUrlFnArgs as array', (t) => {
 test('creates actions with destroy method', (t) => {
   const actions = createActions({
     only: ['DESTROY'],
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   t.truthy(actions.destroy);
@@ -930,9 +929,9 @@ test('destroy commits destroyStart', (t) => {
   const { destroy } = createActions({
     only: ['DESTROY'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -946,9 +945,9 @@ test.cb('destroy commits destroySuccess', (t) => {
   const { destroy } = createActions({
     only: ['DESTROY'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -973,9 +972,9 @@ test.cb('destroy commits destroyError', (t) => {
   const { destroy } = createActions({
     only: ['DESTROY'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const commit = sinon.spy();
@@ -997,9 +996,9 @@ test('calls delete with correct arguments', (t) => {
     rootUrl: '/articles',
     only: ['DESTROY'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const id = 123;
@@ -1020,9 +1019,9 @@ test('destroy supports customUrl', (t) => {
     rootUrl: '/articles',
     only: ['DESTROY'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const config = { foo: 'bar' };
@@ -1042,9 +1041,9 @@ test('destroy supports customUrlFnArgs', (t) => {
     rootUrl(id, type, parentId) { return `/users/${parentId}/articles/${id}`; },
     only: ['DESTROY'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const id = 123;
@@ -1069,9 +1068,9 @@ test('destroy supports customUrlFnArgs as array', (t) => {
     rootUrl(id, type, parentId) { return `/users/${parentId}/articles/${id}`; },
     only: ['DESTROY'],
     client,
-    parseList: res => res,
-    parseSingle: res => res,
-    parseError: res => res
+    parseList: (res) => res,
+    parseSingle: (res) => res,
+    parseError: (res) => res
   });
 
   const id = 123;

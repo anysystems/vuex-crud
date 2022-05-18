@@ -3,9 +3,9 @@ const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const WebpackConfig = require('./webpack.config');
 const Ipsum = require('bavaria-ipsum');
 const bodyParser = require('body-parser');
+const WebpackConfig = require('./webpack.config');
 /* eslint-enable */
 
 const app = express();
@@ -49,7 +49,7 @@ app.get('/api/articles', (req, res) => {
 });
 
 app.get('/api/articles/:id', (req, res) => {
-  const article = articles.find(a => a.id.toString() === req.params.id);
+  const article = articles.find((a) => a.id.toString() === req.params.id);
   const index = articles.indexOf(article);
 
   res.json(articles[index]);
@@ -57,7 +57,7 @@ app.get('/api/articles/:id', (req, res) => {
 
 app.patch('/api/articles/:id', (req, res) => {
   const { body } = req;
-  const article = articles.find(a => a.id.toString() === req.params.id);
+  const article = articles.find((a) => a.id.toString() === req.params.id);
   const index = articles.indexOf(article);
 
   if (index >= 0) {
@@ -71,7 +71,7 @@ app.patch('/api/articles/:id', (req, res) => {
 
 app.put('/api/articles/:id', (req, res) => {
   const { body } = req;
-  const article = articles.find(a => a.id.toString() === req.params.id);
+  const article = articles.find((a) => a.id.toString() === req.params.id);
   const index = articles.indexOf(article);
 
   if (index >= 0) {
@@ -84,7 +84,7 @@ app.put('/api/articles/:id', (req, res) => {
 });
 
 app.delete('/api/articles/:id', (req, res) => {
-  const article = articles.find(a => a.id.toString() === req.params.id);
+  const article = articles.find((a) => a.id.toString() === req.params.id);
   const index = articles.indexOf(article);
 
   if (index >= 0) articles.splice(index, 1);

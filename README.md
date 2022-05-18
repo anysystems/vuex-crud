@@ -206,9 +206,9 @@ export default createCrudModule({
     'REPLACE',
     'DESTROY'
   ], // What CRUD actions should be available
-  parseList: res => res, // Method used to parse collection
-  parseSingle: res => res, // Method used to parse single resource
-  parseError: res => res // Method used to parse error
+  parseList: (res) => res, // Method used to parse collection
+  parseSingle: (res) => res, // Method used to parse single resource
+  parseError: (res) => res // Method used to parse error
 });
 ```
 
