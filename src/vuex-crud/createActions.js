@@ -17,7 +17,7 @@ const createActions = ({
     customUrl, customUrlFnArgs, id, type
   }) => {
     if (typeof customUrl === 'string') {
-      customUrl; 
+      customUrl;
     } else if (isUsingCustomUrlGetter) {
       const argsArray = Array.isArray(customUrlFnArgs) ? customUrlFnArgs : [customUrlFnArgs];
       const args = [id || null, type || null].concat(argsArray);
