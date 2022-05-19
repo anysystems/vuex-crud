@@ -6,10 +6,10 @@ export default {
   isSuccessful: true,
 
   defaultPromise() {
-    const promise = new Promise((resolve, reject) => ((this.isSuccessful)
-      ? resolve(this.successResponse)
-      : reject(this.errorResponse)
-    ));
+    const promise = new Promise(function executor(resolve, reject) {
+      if (this.isSuccessful) resolve(this.successResponse);
+      else reject(this.errorResponse);
+    });
 
     return promise;
   },

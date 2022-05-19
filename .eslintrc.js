@@ -24,5 +24,7 @@ module.exports = {
     'no-param-reassign': 0,
     'func-names': 0,
     "requireConfigFile": 0,
-  }
+  },
+
+  
 };
