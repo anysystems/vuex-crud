@@ -1,4 +1,4 @@
-import test from 'ava';
+import test from '@ava/babel';
 import Vue from 'vue';
 import Vuex from 'vuex';
 

@@ -3,7 +3,9 @@ module.exports = {
 
   parser: '@babel/eslint-parser',
 
-  extends: 'airbnb-base',
+  extends: [
+    'airbnb-base',
+  ], 
 
   plugins: [
     'html'
@@ -25,6 +27,15 @@ module.exports = {
     'func-names': 0,
     "requireConfigFile": 0,
   },
+
+  settings: {
+    'import/resolver': {
+        node: {
+            extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        },
+    },
+  }
+
 
   
 };

@@ -1,82 +1,89 @@
 /**
  * Create default getters and merge them with getters defined by a user.
  */
-const createGetters = {
-  ...{
-    /**
-     * Return array of resources.
-     */
-    list(state) {
-      return state.list.map((id) => state.entities[id.toString()]);
-    },
 
-    page(state) {
-      return (pageNumber = 1, pageSize = 15) => state.list
-        .slice(
-          (Math.abs(pageNumber) - 1) * Math.abs(pageSize),
-          Math.abs(pageNumber) * Math.abs(pageSize)
-        )
-        .map((id) => state.entities[id.toString()]);
-    },
+/* global state */
+/* eslint no-undef: "error" */
 
-    total(state) {
-      return state.total || state.list.length;
-    },
+const createGetters = ({ getters } = {}) => {
+  const result = {
+    ...{
+      /**
+       * Return array of resources.
+       */
+      list(state) {
+        return state.list.map((id) => state.entities[id.toString()]);
+      },
 
-    /**
-     * Get resource by id.
-     */
-    byId(state) {
-      return (id) => state.entities[id.toString()];
-    },
+      page(state) {
+        return (pageNumber = 1, pageSize = 15) => state.list
+          .slice(
+            (Math.abs(pageNumber) - 1) * Math.abs(pageSize),
+            Math.abs(pageNumber) * Math.abs(pageSize)
+          )
+          .map((id) => state.entities[id.toString()]);
+      },
 
-    /**
-     * Get resource by guid.
-     */
-    byGuid(state) {
-      return (guid) => Object.values(state.entities).find((e) => e.guid === guid);
-    },
+      total(state) {
+        return state.total || state.list.length;
+      },
 
-    /**
-     * Get resource by attribute.
-     */
-    byAttribute() {
-      return (attribute, value) => Object
-        .values(state.entities)
-        .find((e) => e[attribute] === value);
-    },
+      /**
+       * Get resource by id.
+       */
+      byId(state) {
+        return (id) => state.entities[id.toString()];
+      },
 
-    /**
-     * Return true if there is a logged error.
-     */
-    isError(state) {
-      return (
-        state.fetchListError !== null
-        || state.fetchSingleError !== null
-        || state.createError !== null
-        || state.updateError !== null
-        || state.replaceError !== null
-        || state.replaceListError !== null
-        || state.destroyError !== null
-      );
-    },
+      /**
+       * Get resource by guid.
+       */
+      byGuid(state) {
+        return (guid) => Object.values(state.entities).find((e) => e.guid === guid);
+      },
 
-    /**
-     * Return true if there is a ongoing request.
-     */
-    isLoading(state) {
-      return (
-        state.isFetchingList
-        || state.isFetchingSingle
-        || state.isCreating
-        || state.isUpdating
-        || state.isReplacing
-        || state.isReplacingList
-        || state.isDestroying
-      );
-    }
-  },
-  ...createGetters
+      /**
+       * Get resource by attribute.
+       */
+      byAttribute() {
+        return (attribute, value) => Object
+          .values(state.entities)
+          .find((e) => e[attribute] === value);
+      },
+
+      /**
+       * Return true if there is a logged error.
+       */
+      isError(state) {
+        return (
+          state.fetchListError !== null
+          || state.fetchSingleError !== null
+          || state.createError !== null
+          || state.updateError !== null
+          || state.replaceError !== null
+          || state.replaceListError !== null
+          || state.destroyError !== null
+        );
+      },
+
+      /**
+       * Return true if there is a ongoing request.
+       */
+      isLoading(state) {
+        return (
+          state.isFetchingList
+          || state.isFetchingSingle
+          || state.isCreating
+          || state.isUpdating
+          || state.isReplacing
+          || state.isReplacingList
+          || state.isDestroying
+        );
+      }
+    },
+    ...getters
+  };
+  return result;
 };
 
 export default createGetters;

@@ -1,4 +1,4 @@
-import test from 'ava';
+import test from '@ava/babel';
 
 import createState from '../../../src/vuex-crud/createState';
 
