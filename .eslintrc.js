@@ -1,14 +1,15 @@
 module.exports = {
   root: true,
 
-  parser: '@babel/eslint-parser',
-
   extends: [
     'airbnb-base',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
   ], 
 
   plugins: [
-    'html'
+    'html',
   ],
 
   parserOptions: {
@@ -29,10 +30,8 @@ module.exports = {
   },
 
   settings: {
-    'import/resolver': {
-        node: {
-            extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        },
+    "import/resolver": {
+      "typescript": {}
     },
   }
 

@@ -1,5 +1,5 @@
 import sinon from 'sinon';
-import test from '@ava/babel';
+import test from 'ava';
 
 import client from '../fakeClient';
 import createActions from '../../../src/vuex-crud/createActions';

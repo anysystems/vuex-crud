@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, import/extensions */
-import 'babel-polyfill';
 import Vue from 'vue';
 import { sync } from 'vuex-router-sync';
 /* eslint-enable */

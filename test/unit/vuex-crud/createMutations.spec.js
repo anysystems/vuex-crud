@@ -1,4 +1,4 @@
-import test from '@ava/babel';
+import test from 'ava';
 import sinon from 'sinon';
 
 import createMutations from '../../../src/vuex-crud/createMutations';
